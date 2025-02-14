@@ -1,0 +1,93 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				"noConsoleLog": "off",
+				"noEmptyBlockStatements": "error"
+			},
+			"correctness": {
+				"noUnusedImports": "error"
+			},
+			"style": {
+				"noUnusedTemplateLiteral": "off",
+				"useNamingConvention": {
+					"fix": "unsafe",
+					"level": "error",
+					"options": {
+						"requireAscii": true,
+						"strictCase": false,
+						"conventions": [
+							{
+								"selector": {
+									"kind": "typeLike"
+								},
+								"match": "_(.*)|(.*)",
+								"formats": ["PascalCase"]
+							},
+							{
+								"selector": {
+									"kind": "objectLiteralMember"
+								},
+								"formats": ["camelCase", "snake_case"]
+							},
+							{
+								"selector": {
+									"kind": "variable"
+								},
+								"match": "_(.*)|(.*)",
+								"formats": ["camelCase", "CONSTANT_CASE"]
+							},
+							{
+								"selector": {
+									"kind": "functionParameter"
+								},
+								"formats": ["camelCase"],
+								"match": "_(.*)|(.*)"
+							},
+							{
+								"selector": {
+									"kind": "function"
+								},
+								"formats": ["camelCase", "PascalCase"]
+							}
+						]
+					}
+				},
+				"useDefaultSwitchClause": "error"
+			},
+			"complexity": {
+				"useLiteralKeys": "off"
+			}
+		},
+		"ignore": ["scripts/**/*.*s", "migrations/**/*.*s"]
+	},
+	"formatter": {
+		"enabled": true,
+		"lineWidth": 100,
+		"formatWithErrors": false,
+		"indentWidth": 2
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"enabled": true
+		}
+	},
+	"json": {
+		"formatter": {
+			"enabled": true
+		},
+		"linter": {
+			"enabled": true
+		}
+	},
+	"files": {
+		"ignore": [".vscode", "build", "logs", ".husky", "dist"]
+	}
+}

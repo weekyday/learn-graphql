@@ -1,0 +1,26 @@
+{
+	"name": "server",
+	"module": "index.ts",
+	"type": "module",
+	"scripts": {
+		"lint:fix": "biome check --write --unsafe --no-errors-on-unmatched --vcs-use-ignore-file=true",
+		"start:dev": "bun --hot index.ts",
+		"drizzle-studio": "bunx drizzle-kit studio",
+		"drizzle-push": "bunx drizzle-kit push"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/bun": "latest",
+		"better-sqlite3": "^11.8.1",
+		"drizzle-kit": "^0.30.4"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@apollo/server": "^4.11.3",
+		"drizzle-graphql": "^0.8.5",
+		"drizzle-orm": "^0.39.3",
+		"graphql": "^16.10.0"
+	}
+}

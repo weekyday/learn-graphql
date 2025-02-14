@@ -12,26 +12,6 @@ const { schema } = buildSchema(db);
 
 const server = new ApolloServer({ schema });
 
-// const result = {
-// 	department: {
-// 		id: 1,
-// 		name: 'Engineering',
-// 		companies: [
-// 			{
-// 				id: '1',
-// 				name: 'company A',
-// 				employees: [
-// 					{
-// 						id: '1',
-// 						name: 'employee A',
-// 						role: 'CEO',
-// 					},
-// 				],
-// 			},
-// 		],
-// 	},
-// };
-
 const { url } = await startStandaloneServer(server);
 
 console.log(`🚀  Server ready at: ${url}`);
